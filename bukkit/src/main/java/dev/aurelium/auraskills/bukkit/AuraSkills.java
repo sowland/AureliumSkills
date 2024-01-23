@@ -79,6 +79,7 @@ import dev.aurelium.auraskills.common.stat.StatRegistry;
 import dev.aurelium.auraskills.common.storage.StorageProvider;
 import dev.aurelium.auraskills.common.storage.backup.BackupProvider;
 import dev.aurelium.auraskills.common.storage.file.FileStorageProvider;
+import dev.aurelium.auraskills.common.storage.mongodb.MongoDBStorageProvider;
 import dev.aurelium.auraskills.common.storage.sql.DatabaseCredentials;
 import dev.aurelium.auraskills.common.storage.sql.SqlStorageProvider;
 import dev.aurelium.auraskills.common.storage.sql.pool.ConnectionPool;
@@ -342,6 +343,9 @@ public class AuraSkills extends JavaPlugin implements AuraSkillsPlugin {
             ConnectionPool connectionPool = new MySqlConnectionPool(credentials);
             connectionPool.enable();
             storageProvider = new SqlStorageProvider(this, connectionPool);
+
+        } else if(configBoolean(Option.MONGODB_ENABLED)){ // MongoDB storage for sowland
+            storageProvider = new MongoDBStorageProvider(this,configString(Option.MONGODB_URI),configString(Option.MONGODB_DATABASE));
         } else { // File storage
             storageProvider = new FileStorageProvider(this, getDataFolder().getPath() + "/userdata");
         }

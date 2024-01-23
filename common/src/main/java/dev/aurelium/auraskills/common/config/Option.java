@@ -3,6 +3,12 @@ package dev.aurelium.auraskills.common.config;
 
 public enum Option {
 
+    // MongoDB Options for sowland
+    MONGODB_ENABLED("mongodb.enabled", OptionType.BOOLEAN),
+    MONGODB_URI("mongodb.uri", OptionType.STRING),
+    MONGODB_DATABASE("mongodb.database", OptionType.STRING),
+    // for sowland end
+
     // Mysql Options
     MYSQL_ENABLED("mysql.enabled", OptionType.BOOLEAN),
     MYSQL_HOST("mysql.host", OptionType.STRING),

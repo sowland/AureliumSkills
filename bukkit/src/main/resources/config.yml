@@ -6,7 +6,10 @@
 # |      Config Guide: https://wiki.aurelium.dev/skills/config/main-config     | #
 # +----------------------------------------------------------------------------+ #
 # Plugin made by Archy
-
+mongodb:
+  enabled: true
+  uri: mongodb://op.sowland.net:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=SowlandAPI
+  database: sowland_test
 mysql:
   enabled: false
   host: localhost
@@ -119,7 +122,7 @@ on_death:
   reset_skills: false
   reset_xp: false
 auto_save:
-  enabled: true
+  enabled: false
   interval_ticks: 12000
 leveler:
   title:

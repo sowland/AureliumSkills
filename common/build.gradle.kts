@@ -24,6 +24,8 @@ dependencies {
     compileOnly("net.luckperms:api:5.4")
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation(platform("org.junit:junit-bom:5.9.3"))
+
+    implementation("org.mongodb:mongodb-driver-sync:4.11.1") // for sowland
 }
 
 tasks.withType<JavaCompile> {
