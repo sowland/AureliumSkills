@@ -246,18 +246,16 @@ public class MongoDBStorageProvider extends StorageProvider {
         saveTraitModifiers(userId, state.traitModifiers());
     }
     private static int getNextUserId(MongoCollection<Document> counterCollection) {
-        Document filter = new Document("_id", "users");
-        Document update = new Document("$inc", new Document("sequence", 1));
-
-        Document result = counterCollection.findOneAndUpdate(filter, update);
+        Document result = counterCollection.find(new Document("_id", "users")).first();
 
         if (result == null) {
             // 如果递增文档不存在，则插入新的递增文档
             counterCollection.insertOne(new Document("_id", "users").append("sequence", 1));
             return 1;
         }
-
-        return result.getInteger("sequence");
+        int newUserID = result.getInteger("sequence") + 1;
+        counterCollection.updateOne(new Document("_id", "users"), new Document("$set", new Document("sequence", newUserID)));
+        return newUserID;
     }
 
     private int getUserId(UUID uuid) {
