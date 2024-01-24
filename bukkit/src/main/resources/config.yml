@@ -20,8 +20,8 @@ mysql:
   load_delay: 0
   always_load_on_join: false
   ssl: false
-default_language: en
-languages: [en, es, fr, de]
+default_language: zh-CN
+languages: [en, es, fr, de, zh-CN]
 try_detect_client_language: false
 hooks:
   HolographicDisplays:

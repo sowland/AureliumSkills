@@ -344,15 +344,6 @@ acf:
     location_please_specify_world: "<red>错误: 请指定世界名称. 示例: <yellow>world:x,y,z"
     location_please_specify_xyz: "<red>错误: 请指定一个坐标。示例: <yellow>world:x,y,z"
     location_console_not_relative: "<red>错误: 控制台不能使用相对坐标来确定位置。"
-action_bar:
-  idle: "<red>{hp}/{max_hp}❤                 <aqua>{mana}/{max_mana} {mana_unit}"
-  xp: "<red>{hp}/{max_hp}❤  <gold>+{xp_gained} {skill} {xp_unit} <gray>({current_xp}/{level_xp} {xp_unit})  <aqua>{mana}/{max_mana} {mana_unit}"
-  xp_removed: "<red>{hp}/{max_hp}❤  <gold>-{xp_removed} {skill} {xp_unit} <gray>({current_xp}/{level_xp} {xp_unit})  <aqua>{mana}/{max_mana} {mana_unit}"
-  maxed: "<red>{hp}/{max_hp}❤  <gold>+{xp_gained} {skill} {xp_unit} <gray>(满级)  <aqua>{mana}/{max_mana} {mana_unit}"
-  maxed_removed: "<red>{hp}/{max_hp}❤  <gold>-{xp_removed} {skill} {xp_unit} <gray>(满级)  <aqua>{mana}/{max_mana} {mana_unit}"
-  ability: "{message}"
-  boss_bar_xp: "<gold>{skill} {level} <gray>({current_xp}/{level_xp} {xp_unit})"
-  boss_bar_maxed: "<gold>{skill} {level} <gray>(满级)"
 commands:
   prefix: "<dark_gray>[<aqua>技能插件<dark_gray>] "
   armor:
@@ -574,46 +565,42 @@ menus:
     progress_to_level: "<gray>到达等级 {level}: 进度为<yellow> {percent}%<gray>{current_xp}/{level_xp} {xp_unit}"
     max_level: "<gold>最大等级"
     ability_levels: "<gray>技能等级:{ability_1}{ability_2}{ability_3}{ability_4}{ability_5} "
-    ability_level_entry: "<gold>{ability} {level} <dark_gray>({info})"
-    ability_level_entry_locked: "<dark_gray><strikethrough>{ability}"
     stats_leveled: "<gray>属性已升级了 {stats} 级"
     mana_ability: "<light_purple><bold>魔法技能 </bold><blue>{mana_ability} {level}<gray>持续时间: <green>{duration}s <gray>魔法值耗费: <aqua>{mana_cost} <gray>冷却时长: <yellow>{cooldown}s "
-  skills_menu:
-    skills_menu_title: 你的技能
+    duration: "Duration"
+    mana_cost: "Mana Cost"
+    cooldown: "Cooldown"
+    damage: "Damage"
+    max_mana_cost: "Max Mana Cost"
+    attack_speed: "Attack Speed"
+    back: "Go Back"
+    back_click: "Back to {menu_name} Menu"
+    unlocked: "UNLOCKED"
+    in_progress: "IN PROGRESS"
+    locked: "LOCKED"
+    your_level: "Your Level"
+    next_page: "Next Page"
+    next_page_click: "Click to go to next page"
+    previous_page: "Previous Page"
+    previous_page_click: "Click to go to previous page"
+  skills:
+    skills_title: "Your Skills"
     your_skills: "<aqua>你的技能 - <gold>{player}"
     your_skills_desc: "<gray>做各种各样的事情得到有趣的属性增强, 技能和更多!"
     your_skills_hover: "<yellow>悬停在技能图标上可以了解更多!"
     your_skills_click: "<yellow>点击技能图标以了解技能掌握进度!"
     skill_click: "<yellow>点击查看技能掌握进度!"
-    skill_locked: "<red>你没有权限浏览此技能!"
     stats: "状态"
     stats_desc: "<gray>通过升级技能获得状态增益"
     stats_click: "<yellow>点击了解更多或查看您的统计数据"
-  level_progression_menu:
-    level_progression_menu_title: "{skill} 等级 - 第 {page} 页"
+  level_progression:
+    level_progression_title: "{skill} Levels - Page {page}"
     your_ranking: "<gold>你的技能排名"
     rank_out_of: "<white>你现在在全部的 {total} 名玩家中处于第 <gold>{rank}<white> 名"
     rank_percent: "<white>你超过了 <gold>{percent}% <white>的玩家"
-    back: "<green>返回"
-    back_click: "<gray>返回 {menu_name} 菜单"
-    next_page: "<gold>下一页"
-    next_page_click: "<yellow>点击进入下一页"
-    previous_page: "<gold>上一页"
-    previous_page_click: "<yellow>点击返回上一页"
-    level_unlocked: "<green>等级 {level}"
-    level_in_progress: "<yellow>等级 {level}"
-    level_locked: "<red>等级 {level}"
-    level_number: "<gray>等级 <white>{level}"
-    unlocked: "<green>已解锁"
-    in_progress: "<yellow>正在进行"
-    locked: "<red>已锁定"
     rewards: "<gray>奖励: {rewards}"
-    rewards_entry: " {color}+{num} {symbol} {stat}"
-    money_reward: " <green>${amount}"
     ability_unlock: "<gold>{ability} <green><bold>技能解锁</bold><gray>  {desc}"
-    ability_level: "<gold>{ability} {level}<gray>  {desc}"
     mana_ability_unlock: "<blue>{mana_ability} <light_purple><bold>魔法技能解锁</bold><gray>  {desc}"
-    mana_ability_level: "<blue>{mana_ability} {level}<gray>  {desc}"
     progress: "<gray>进度: <yellow>{percent}% <gray>{current_xp}/{level_xp} {xp_unit}"
     leaderboard_click: "<yellow>点击查看 {skill} 排行榜"
     sources: "<green>经验来源"
@@ -621,57 +608,32 @@ menus:
     sources_click: "<yellow>点击查看 {skill} 来源"
     abilities: "<red>技能"
     abilities_desc: "<aqua>技能<gray>是被动技能，随着技能的升级，<gray>你可以解锁和升级。<light_purple>魔法技能<gray>是一种特殊类型的能力，<gray>需要激活并消耗魔法值。"
+    mana_abilities_desc: "<3>Mana Abilities</3> <1>are a special type of ability that requires activation and consumes mana.</1>"
     abilities_click: "<yellow>点击查看 {skill} 技能"
-  stats_menu:
-    stats_menu_title: 你的属性
-    player_stat_entry: " {color}{symbol} {stat} <white>{level}"
+  stats:
+    stats_title: Your Stats
     skills: "<gray>技能: <white>{skills}"
-    your_level: "<gray>你的等级: {color}{level}"
-    attack_damage: "<dark_red>+{value}% 攻击伤害"
-    hp: "<red>+{value} ❤"
-    saturated_regen: "<gold>+{value} 饱和度"
-    full_hunger_regen: "<gold>+{value} 完全饥饿恢复"
-    almost_full_hunger_regen: "<gold>+{value} 近完全饥饿恢复"
-    mana_regen: "<aqua>+{value} 每秒魔法值恢复"
-    luck: "<dark_green>+{value} 幸运"
-    double_drop_chance: "<dark_green>双倍掉落: {value}%"
-    xp_gain: "<blue>+{value}% {xp_unit} 经验翻倍"
-    anvil_cost_reduction: "<blue>铁砧修复减少: {value}%"
-    max_mana: "<blue>最大魔力值: {value}"
-    incoming_damage: "<dark_purple>-{value}% 将受到的伤害"
   unclaimed_items:
     unclaimed_items_title: "领取物品"
     inventory_full: "<yellow>你的物品栏没有足够的空间"
     click_to_claim: "<yellow>点击领取!"
   leaderboard:
     leaderboard_title: "{skill} 排行榜"
-    player_entry: "<yellow>{place}. <gold>{player}"
-    skill_level: "<gray>等级 <white>{level}"
   sources:
     sources_title: "{skill} 经验来源 ({current_page}/{total_pages})"
     sorter: "<aqua>对经验来源进行排序"
-    sort_type: "<gray>{selected}{type_name}"
-    selected: "<white>> "
     descending: "从最高到最低"
     ascending: "从最低到最高"
     alphabetical: "名称 （A-Z）"
     reverse_alphabetical: "名称 (Z - A)"
     sort_click: "<yellow>点击以循环排序类型"
-    source_name: "<white>{name}"
-    source_xp: "<gray>经验值: <green>{xp}"
-    source_xp_rate: "<gray>经验值: <green>{xp}/{unit}"
     multiplied_xp: "<white>经验倍率: <green>{xp}"
-    multiplied_xp_rate: "<white>经验倍率: <green>{xp}/{unit}"
     multiplied_desc: "<gray><italic>这是乘以当前的经验值<gray><italic>得出所获得的经验值"
   abilities:
     abilities_title: "{skill} 技能"
-    locked_desc: "<white>描述： <gray>{desc}"
+    description: "Description"
     unlocked_at: "<gray>在 <dark_aqua>{skill} {level} 解锁。"
-    your_ability_level: "<white>你的等级: <aqua>{level}"
-    your_ability_level_maxed: "<white>你的等级: <aqua>{level} <gold>(MAXED)"
-    unlocked_desc: "<white>下次升级时 <dark_aqua>{skill} {level}<white> <gray>{desc}"
-    unlocked_desc_maxed: "<white>描述： <gray>{desc}"
-    desc_upgrade_value: "<gray>{current}<dark_gray>→{next}<gray>"
+    next_upgrade_at: "<1>Next upgrade at <2>{skill} {level}"
 mana_abilities:
   replenish:
     name: 自动补种
@@ -730,12 +692,6 @@ mana_abilities:
     menu: "<light_purple><bold>魔法技能 </bold><blue>{mana_ability} {level}<gray>攻击速度: <red>+{value}% <gray>持续时间: <green>{duration}s<gray>魔力耗费: <aqua>{mana_cost} <gray>冷却时间: <yellow>{cooldown}s"
   not_ready: "<red><italic>技能还没有准备好! </italic><gray>({cooldown}s)"
   not_enough_mana: "&法力不足! <gray>({mana} {mana_unit} 需要, 但是你只有 {current_mana}/{max_mana})"
-rewards:
-  item:
-    default_menu_message: "\n  {display_name}"
-    default_menu_message_multiple: "\n  {display_name} {amount}x"
-    default_chat_message: "\n  {display_name}"
-    default_chat_message_multiple: "\n  {display_name} {amount}x"
 skills:
   farming:
     name: 草药学
@@ -783,99 +739,121 @@ skills:
     name: 锻造
     desc: "<gray>使用铁砧合并附魔书或修理装备以获得锻造 {xp_unit}"
 sources:
-  farming:
-    wheat: 小麦
-    potato: 马铃薯
-    carrot: 胡萝卜
-    beetroot: 甜菜根
-    nether_wart: 下界疣
-    pumpkin: 南瓜
-    melon: 瓜
-    sugar_cane: 甘蔗
-    bamboo: 竹子
-    cocoa: 可可豆
-    cactus: 仙人掌
-    brown_mushroom: 棕色蘑菇
-    red_mushroom: 红色蘑菇
-    kelp: 海带
-    sea_pickle: 海泡菜
-    sweet_berry_bush: 甜浆果
-    glow_berries: 发光浆果
-  foraging:
-    oak_log: 橡木原木
-    spruce_log: 云杉木原木
-    birch_log: 白桦原木
-    jungle_log: 丛林原木
-    acacia_log: 金合欢原木
-    dark_oak_log: 深色橡木原木
-    oak_leaves: 橡树树叶
-    spruce_leaves: 云杉树叶
-    birch_leaves: 白桦树叶
-    jungle_leaves: 丛林树叶
-    acacia_leaves: 金合欢树叶
-    dark_oak_leaves: 深色橡树树叶
-    crimson_stem: 绯红菌柄
-    warped_stem: 诡异菌柄
-    nether_wart_block: 下界疣块
-    warped_wart_block: 诡异疣块
-    moss_block: 苔藓块
-    moss_carpet: 苔藓地毯
-    azalea: 杜鹃花丛
-    flowering_azalea: 盛开的杜鹃花丛
-    azalea_leaves: 杜鹃树叶
-    flowering_azalea_leaves: 盛开的杜鹃树叶
-    mangrove_log: 红树原木
-    mangrove_leaves: 红树树叶
-    mangrove_roots: 红树根
-  mining:
-    stone: 石头
-    cobblestone: 圆石
-    andesite: 安山岩
-    diorite: 闪长岩
-    granite: 花岗岩
-    coal_ore: 煤矿石
-    nether_quartz_ore: 下界石英矿石
-    iron_ore: 铁矿石
-    lapis_ore: 青金石矿石
-    redstone_ore: 红石矿石
-    gold_ore: 金矿石
-    diamond_ore: 钻石矿石
-    emerald_ore: 绿宝石矿石
-    terracotta: 陶瓦
-    white_terracotta: 白色陶瓦
-    orange_terracotta: 橙色陶瓦
-    yellow_terracotta: 黄色陶瓦
-    light_gray_terracotta: 淡灰色陶瓦
-    brown_terracotta: 棕色陶瓦
-    red_terracotta: 红色陶瓦
-    netherrack: 下界岩
-    blackstone: 黑石
-    basalt: 玄武岩
-    magma_block: 岩浆块
-    nether_gold_ore: 下界金矿石
-    ancient_debris: 远古残骸
-    end_stone: 末地石
-    obsidian: 黑曜石
-    deepslate: 深板岩
-    copper_ore: 铜矿石
-    tuff: 凝灰岩
-    calcite: 方解石
-    smooth_basalt: 平滑玄武岩
-    amethyst_block: 紫晶方块
-    amethyst_cluster: 紫水晶簇
-    deepslate_coal_ore: 深板岩煤矿
-    deepslate_iron_ore: 深板岩铁矿
-    deepslate_copper_ore: 深板岩铜矿石
-    deepslate_gold_ore: 深板岩金矿石
-    deepslate_redstone_ore: 深板岩红矿石
-    deepslate_lapis_ore: 深板岩青金石矿石
-    deepslate_emerald_ore: 深板岩绿宝石矿石
-    deepslate_diamond_ore: 深板岩钻石矿石
-    dripstone_block: 深板岩
-    ice: 冰
-    packed_ice: 浮冰
-    blue_ice: 蓝冰
-    reinforced_deepslate: 强化深板岩
+  block:
+    wheat: Wheat
+    potato: Potato
+    carrot: Carrot
+    beetroot: Beetroot
+    nether_wart: Nether Wart
+    pumpkin: Pumpkin
+    melon: Melon
+    sugar_cane: Sugar Cane
+    bamboo: Bamboo
+    cocoa: Cocoa
+    cactus: Cactus
+    brown_mushroom: Brown Mushroom
+    red_mushroom: Red Mushroom
+    kelp: Kelp
+    sea_pickle: Sea Pickles
+    sweet_berry_bush: Sweet Berries
+    glow_berries: Glow Berries
+    torchflower: Torchflower
+    pitcher_plant: Pitcher Plant
+    oak_log: Oak Log
+    spruce_log: Spruce Log
+    birch_log: Birch Log
+    jungle_log: Jungle Log
+    acacia_log: Acacia Log
+    dark_oak_log: Dark Oak Log
+    oak_leaves: Oak Leaves
+    spruce_leaves: Spruce Leaves
+    birch_leaves: Birch Leaves
+    jungle_leaves: Jungle Leaves
+    acacia_leaves: Acacia Leaves
+    dark_oak_leaves: Dark Oak Leaves
+    crimson_stem: Crimson Stem
+    warped_stem: Warped Stem
+    nether_wart_block: Nether Wart Block
+    warped_wart_block: Warped Wart Block
+    moss_block: Moss Block
+    moss_carpet: Moss Carpet
+    azalea: Azalea
+    flowering_azalea: Flowering Azalea
+    azalea_leaves: Azalea Leaves
+    flowering_azalea_leaves: Flowering Azalea Leaves
+    mangrove_log: Mangrove Log
+    mangrove_leaves: Mangrove Leaves
+    mangrove_roots: Mangrove Roots
+    cherry_log: Cherry Log
+    cherry_leaves: Cherry Leaves
+    pink_petals: Pink Petals
+    stone: Stone
+    cobblestone: Cobblestone
+    andesite: Andesite
+    diorite: Diorite
+    granite: Granite
+    coal_ore: Coal Ore
+    nether_quartz_ore: Nether Quartz Ore
+    iron_ore: Iron Ore
+    lapis_ore: Lapis Ore
+    redstone_ore: Redstone Ore
+    gold_ore: Gold Ore
+    diamond_ore: Diamond Ore
+    emerald_ore: Emerald Ore
+    terracotta: Terracotta
+    white_terracotta: White Terracotta
+    orange_terracotta: Orange Terracotta
+    yellow_terracotta: Yellow Terracotta
+    light_gray_terracotta: Light Gray Terrcotta
+    brown_terracotta: Brown Terrcotta
+    red_terracotta: Red Terracotta
+    netherrack: Netherrack
+    blackstone: Blackstone
+    basalt: Basalt
+    magma_block: Magma Block
+    nether_gold_ore: Nether Gold Ore
+    ancient_debris: Ancient Debris
+    end_stone: End Stone
+    obsidian: Obsidian
+    deepslate: Deepslate
+    copper_ore: Copper Ore
+    tuff: Tuff
+    calcite: Calcite
+    smooth_basalt: Smooth Basalt
+    amethyst_block: Amethyst Block
+    amethyst_cluster: Amethyst Cluster
+    deepslate_coal_ore: Deepslate Coal Ore
+    deepslate_iron_ore: Deepslate Iron Ore
+    deepslate_copper_ore: Deepslate Copper Ore
+    deepslate_gold_ore: Deepslate Gold Ore
+    deepslate_redstone_ore: Deepslate Redstone Ore
+    deepslate_lapis_ore: Deepslate Lapis Ore
+    deepslate_emerald_ore: Deepslate Emerald Ore
+    deepslate_diamond_ore: Deepslate Diamond Ore
+    dripstone_block: Dripstone Block
+    ice: Ice
+    packed_ice: Packed Ice
+    blue_ice: Blue Ice
+    reinforced_deepslate: Reinforced Deepslate
+    dirt: Dirt
+    grass_block: Grass Block
+    sand: Sand
+    gravel: Gravel
+    mycelium: Mycelium
+    clay: Clay
+    soul_sand: Soul Sand
+    coarse_dirt: Coarse Dirt
+    podzol: Podzol
+    soul_soil: Soul Soil
+    red_sand: Red Sand
+    rooted_dirt: Rooted Dirt
+    mud: Mud
+    muddy_mangrove_roots: Muddy Mangrove Roots
+    sculk: Sculk
+    sculk_vein: Sculk Vein
+    sculk_sensor: Sculk Sensor
+    sculk_catalyst: Sculk Catalyst
+    sculk_shrieker: Sculk Shrieker
   fishing:
     cod: 鳕鱼
     salmon: 鲑鱼
@@ -885,22 +863,7 @@ sources:
     junk: 垃圾
     rare: 稀有战利品
     epic: 史诗级战利品
-  excavation:
-    dirt: 泥土
-    grass_block: 草方块
-    sand: 沙子
-    gravel: 砂砾
-    mycelium: 菌丝
-    clay: 黏土块
-    soul_sand: 灵魂沙
-    coarse_dirt: 砂土
-    podzol: 灰化土
-    soul_soil: 灵魂土
-    red_sand: 红沙
-    rooted_dirt: 缠根泥土
-    mud: 泥巴
-    muddy_mangrove_roots: 沾泥的红树根
-  mobs:
+  entity:
     player: 玩家
     bat: 蝙蝠
     cat: 猫
@@ -977,17 +940,19 @@ sources:
     frog: 青蛙
     tadpole: 蝌蚪
     warden: 监守者
-  defense:
+    camel: Camel
+    sniffer: Sniffer
+  damage:
     mob_damage: 来自生物的伤害
     player_damage: 来自玩家的伤害
-  endurance:
+    fall_damage: Taking Fall Damage
+  statistic:
     walk_per_meter: 行走
     sprint_per_meter: 疾跑
     swim_per_meter: 游泳
-  agility:
+  jumping:
     jump_per_100: 跳跃
-    fall_damage: 承受跌落伤害
-  alchemy:
+  brewing:
     awkward: 粗制的药水
     regular: 普通药水
     extended: 延长药水时效
@@ -999,30 +964,27 @@ sources:
     armor_per_level: 护甲
     tool_per_level: 工具
     book_per_level: 附魔书
-  sorcery:
+  mana_ability_use:
     mana_ability_use: 使用魔法技能
-    sculk: 幽匿块
-    sculk_vein: 幽匿脉络
-    sculk_sensor: 幽匿感测体
-    sculk_catalyst: 幽匿催发体
-    sculk_shrieker: 幽匿尖啸体
-  healing:
+  item_consume:
     drink_regular: 饮用普通药水
     drink_extended: 饮用延长时长的药水
     drink_upgraded: 饮用已升级的药剂
+    golden_apple: 金苹果
+    enchanted_golden_apple: 附魔金苹果
+  potion_splash:
     splash_regular: 喷洒喷溅型药水
     splash_extended: 喷洒喷溅型延长时长的药水
     splash_upgraded: 喷洒喷溅型已升级的药水
     lingering_regular: 使用普通滞留型药水
     lingering_extended: 使用滞留型延长时长的药水
     lingering_upgraded: 使用已升级的滞留型药水
-    golden_apple: 金苹果
-    enchanted_golden_apple: 附魔金苹果
-  forging:
+  anvil:
     combine_books_per_level: 合并附魔书
     combine_weapon_per_level: 合并武器和附魔书
     combine_armor_per_level: 合并护甲和附魔书
     combine_tool_per_level: 合并工具和附魔书
+  grindstone:
     grindstone_per_level: 用砂轮祛魔
   units:
     damage: 伤害
@@ -1036,35 +998,63 @@ stats:
   strength:
     name: 力量
     desc: "<gray>力量能使你在使用各种不同的武器时提升伤害"
-    color: "<dark_red>"
-    symbol: "➽"
   health:
     name: 生命值
     desc: "<gray>生命能够提升你的最大 {hp_unit}, 也允许你在战斗中能够活得更久"
-    color: "<red>"
-    symbol: "❤"
   regeneration:
     name: 再生
     desc: "<gray>再生增加你的生命和魔法值恢复速度"
-    color: "<gold>"
-    symbol: "❥"
   luck:
     name: 幸运
     desc: "<gray>幸运能够提升掉落物的掉落几率, 以及获得稀有掉落物的几率"
-    color: "<dark_green>"
-    symbol: "☘"
   wisdom:
     name: 智慧
     desc: "<gray>智慧能够增加魔法值上限, 增加经验值获取以及减少铁砧的经验值耗费"
-    color: "<blue>"
-    symbol: "✿"
   toughness:
     name: 韧性
     desc: "<gray>韧性能减少敌人对你造成的伤害"
-    color: "<dark_purple>"
-    symbol: "✦"
+  crit_chance:
+    name: Crit Chance
+    desc: "Crit Chance is your odds to deal a critical hit"
+  crit_damage:
+    name: Crit Damage
+    desc: "Crit Damage is the percentage increase in damage when dealing a critical hit"
+  speed:
+    name: Speed
+    desc: "Speed increases how fast you can walk and run"
+traits:
+  attack_damage:
+    name: Attack Damage
+  hp:
+    name: HP
+  saturation_regen:
+    name: Saturation Regen
+  hunger_regen:
+    name: Hunger Regen
+  mana_regen:
+    name: Mana Regen
+  luck:
+    name: Luck
+  double_drop:
+    name: Double Drop
+  experience_bonus:
+    name: Experience Bonus
+  anvil_discount:
+    name: Anvil Discount
+  max_mana:
+    name: Max Mana
+  damage_reduction:
+    name: Damage Reduction
+  crit_chance:
+    name: Crit Chance
+  crit_damage:
+    name: Crit Damage
+  movement_speed:
+    name: Movement Speed
+ui:
+  maxed: MAXED
 units:
   mana: 魔法值
   hp: 血量
   xp: 经验
-file_version: 29
+file_version: 31
